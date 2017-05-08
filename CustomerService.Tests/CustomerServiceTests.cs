@@ -19,7 +19,7 @@ namespace CustomerService.Tests
 		public void Create_GivenCustomer_CustomerIsCreated()
 		{
 			//arrange
-			var customerRepository = A.Fake<ICustomerRepository>();
+			var customerRepository = A.Fake<IRepository<Customer>>();
 			var customerService = new CustomerService(customerRepository);
 			var customer = fixture.Create<Customer>();
 
@@ -35,15 +35,18 @@ namespace CustomerService.Tests
 		public void Delete_GivenId_CustomerWithIdIdDeleted()
 		{
 			//arrange
-			var customerRepository = A.Fake<ICustomerRepository>();
+			var customerRepository = A.Fake<IRepository<Customer>>();
 			var customerService = new CustomerService(customerRepository);
+			var customerToDelete = fixture.Create<Customer>();
 			var customerIdToDelete = fixture.Create<int>();
+			A.CallTo(() => customerRepository.FindById(customerIdToDelete))
+				.Returns(customerToDelete);
 
 			//act
 			customerService.Delete(customerIdToDelete);
 
 			//assert
-			A.CallTo(() => customerRepository.Delete(customerIdToDelete))
+			A.CallTo(() => customerRepository.Delete(customerToDelete))
 				.MustHaveHappened(Repeated.Exactly.Once);
 		}
 
@@ -51,7 +54,7 @@ namespace CustomerService.Tests
 		public void Update_GivenCustomer_CustomerIsUpdated()
 		{
 			//arrange
-			var customerRepository = A.Fake<ICustomerRepository>();
+			var customerRepository = A.Fake<IRepository<Customer>>();
 			var customerService = new CustomerService(customerRepository);
 			var customer = fixture.Create<Customer>();
 

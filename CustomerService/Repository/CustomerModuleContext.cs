@@ -3,12 +3,21 @@ using CustomerService.Entities;
 
 namespace CustomerService.Repository
 {
-	public class CustomerModuleContext : DbContext
+	public class CustomerModuleContext : DbContext, IDataContext
 	{
 		public CustomerModuleContext() : base("CustomerModuleContext")
 		{
-			
 		}
-		public DbSet<Customer> Customers { get; set; }
+
+		public IDbSet<T> Set<T>() where T : class
+		{
+			return base.Set<T>();
+		}
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Customer>();
+		}
 	}
+
 }

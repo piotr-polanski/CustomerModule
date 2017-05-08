@@ -18,6 +18,8 @@ namespace CustomerService.Entities
 			TelephoneNumber = telephoneNumber;
 			Address = address;
 		}
+
+		public int Id { get; set; }
 		public string Name { get; private set; }
 		public string Surname { get; private set; }
 		public string TelephoneNumber { get; private set; }
