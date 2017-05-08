@@ -1,5 +1,4 @@
 ﻿using CustomerService.Entities;
-
 namespace CustomerService
 {
 	public interface ICustomerService
