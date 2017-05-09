@@ -3,7 +3,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace CustomerService.Repository
 {
-	public interface IDataContext
+	interface IDataContext
 	{
 		DbEntityEntry<T> Entry<T>(T entity) where T : class;
 

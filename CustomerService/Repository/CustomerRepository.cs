@@ -5,7 +5,7 @@ using CustomerService.Exceptions;
 
 namespace CustomerService.Repository
 {
-	public class CustomerRepository : EFRepository<Customer>, IRepository<Customer>
+	class CustomerRepository : EFRepository<Customer>, IRepository<Customer>
 	{
 		public CustomerRepository(IDataContext context) : base(context)
 		{

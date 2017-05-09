@@ -3,7 +3,7 @@ using CustomerService.Entities;
 
 namespace CustomerService.Repository
 {
-	public class CustomerModuleContext : DbContext, IDataContext
+	class CustomerModuleContext : DbContext, IDataContext
 	{
 		public CustomerModuleContext() : base("CustomerModuleContext")
 		{

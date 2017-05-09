@@ -1,6 +1,6 @@
 ﻿namespace CustomerService.Repository
 {
-	public class EFUnitOfWork : IUnitOfWork
+	class EFUnitOfWork : IUnitOfWork
 	{
 		private readonly IDataContext _dataContext;
 
