@@ -37,13 +37,15 @@ namespace Customer.WebApi.Controllers
         }
 
         // PUT: api/Customer/5
-        public void Put(int id, [FromBody]CustomerService.Entities.Customer value)
+        public void Put(int id, [FromBody]CustomerService.Entities.Customer customer)
         {
+			_customerService.Update(id, customer);
         }
 
         // DELETE: api/Customer/5
         public void Delete(int id)
         {
+			_customerService.Delete(id);
         }
     }
 }

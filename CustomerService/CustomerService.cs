@@ -18,6 +18,7 @@ namespace CustomerService
 
 		public void Create(Customer customer)
 		{
+			customer.Validate();
 			_customerRepository.Add(customer);
 			_unitOfWork.SaveChanges();
 		}
@@ -28,8 +29,15 @@ namespace CustomerService
 			_unitOfWork.SaveChanges();
 		}
 
+		public void Update(int id, Customer customer)
+		{
+			customer.SetId(id);
+			Update(customer);
+		}
+
 		public void Update(Customer customer)
 		{
+			customer.Validate();
 			_customerRepository.Update(customer);
 			_unitOfWork.SaveChanges();
 		}

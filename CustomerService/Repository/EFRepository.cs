@@ -38,6 +38,7 @@ namespace CustomerService.Repository
 
 		public virtual void Update(T entity)
 		{
+			context.Set<T>().Attach(entity);
 			context.Entry(entity).State = EntityState.Modified;
 		}
 
