@@ -4,38 +4,38 @@ using System.Linq;
 using System.Linq.Expressions;
 using CustomerService.Exceptions;
 
-namespace CustomerService.Repository
+namespace CustomerService.Repository.Abstract
 {
-	abstract class EFRepository<T> where T : class 
+	abstract class EfRepository<T> where T : class 
 	{
-		protected readonly IDataContext context;
+		protected readonly IDataContext Context;
 
-		public EFRepository(IDataContext context)
+		public EfRepository(IDataContext context)
 		{
-			this.context = context;
+			Context = context;
 		}
 
 		public virtual IQueryable<T> GetAll()
 		{
-			return context.Set<T>();
+			return Context.Set<T>();
 		}
 
 		public virtual IQueryable<T> GetBy(Expression<Func<T, bool>> predicate)
 		{
-			return context.Set<T>().Where(predicate);
+			return Context.Set<T>().Where(predicate);
 		}
 
 		public virtual void Add(T entity)
 		{
-			context.Set<T>().Add(entity);
+			Context.Set<T>().Add(entity);
 		}
 
 		public virtual void Delete(int id)
 		{
-			var entity = context.Set<T>().Find(id);
+			var entity = Context.Set<T>().Find(id);
 			if (entity != null)
 			{
-				context.Set<T>().Remove(entity);
+				Context.Set<T>().Remove(entity);
 			}
 			else
 			{
@@ -45,8 +45,8 @@ namespace CustomerService.Repository
 
 		public virtual void Update(T entity)
 		{
-			context.Set<T>().Attach(entity);
-			context.Entry(entity).State = EntityState.Modified;
+			Context.Set<T>().Attach(entity);
+			Context.Entry(entity).State = EntityState.Modified;
 		}
 
 	}

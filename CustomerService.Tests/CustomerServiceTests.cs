@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using CustomerService.Entities;
-using CustomerService.Repository;
+using CustomerService.Repository.Abstract;
 using FakeItEasy;
 using Ploeh.AutoFixture;
 using Xunit;

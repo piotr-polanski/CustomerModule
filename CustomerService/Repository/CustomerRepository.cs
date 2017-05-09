@@ -2,10 +2,11 @@
 using System.Linq;
 using CustomerService.Entities;
 using CustomerService.Exceptions;
+using CustomerService.Repository.Abstract;
 
 namespace CustomerService.Repository
 {
-	class CustomerRepository : EFRepository<Customer>, ICustomerRepository
+	class CustomerRepository : EfRepository<Customer>, ICustomerRepository
 	{
 		public CustomerRepository(IDataContext context) : base(context)
 		{

@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace CustomerService.Repository
+namespace CustomerService.Repository.Abstract
 {
 	public interface IRepository<T> 
 	{

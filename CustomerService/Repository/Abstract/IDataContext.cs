@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-namespace CustomerService.Repository
+namespace CustomerService.Repository.Abstract
 {
 	interface IDataContext
 	{

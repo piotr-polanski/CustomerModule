@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using CustomerService.Entities;
+using CustomerService.Repository.Abstract;
 
 namespace CustomerService.Repository
 {
@@ -9,7 +10,7 @@ namespace CustomerService.Repository
 		{
 		}
 
-		public IDbSet<T> Set<T>() where T : class
+		public new IDbSet<T> Set<T>() where T : class
 		{
 			return base.Set<T>();
 		}

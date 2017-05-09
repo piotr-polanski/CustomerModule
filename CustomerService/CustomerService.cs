@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CustomerService.Entities;
-using CustomerService.Repository;
+using CustomerService.Repository.Abstract;
 
 namespace CustomerService
 {

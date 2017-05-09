@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Repository
+﻿namespace CustomerService.Repository.Abstract
 {
 	public interface IUnitOfWork
 	{

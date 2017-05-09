@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using Customer.WebApi.Filters;
 using CustomerService;
 
 namespace Customer.WebApi.Controllers
@@ -9,7 +8,7 @@ namespace Customer.WebApi.Controllers
     {
 	    private readonly ICustomerService _customerService;
 
-	    public CustomerController(CustomerService.ICustomerService customerService)
+	    public CustomerController(ICustomerService customerService)
 	    {
 		    _customerService = customerService;
 	    }

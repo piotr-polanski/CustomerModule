@@ -1,10 +1,12 @@
-﻿namespace CustomerService.Repository
+﻿using CustomerService.Repository.Abstract;
+
+namespace CustomerService.Repository
 {
-	class EFUnitOfWork : IUnitOfWork
+	class EfUnitOfWork : IUnitOfWork
 	{
 		private readonly IDataContext _dataContext;
 
-		public EFUnitOfWork(IDataContext dataContext)
+		public EfUnitOfWork(IDataContext dataContext)
 		{
 			_dataContext = dataContext;
 		}

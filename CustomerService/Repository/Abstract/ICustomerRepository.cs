@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using CustomerService.Entities;
+﻿using CustomerService.Entities;
 
-namespace CustomerService.Repository
+namespace CustomerService.Repository.Abstract
 {
 	public interface ICustomerRepository : IRepository<Customer> 
 	{
-		Customer GetById(int id);
+		new Customer GetById(int id);
 	}
 }

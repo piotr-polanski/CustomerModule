@@ -1,5 +1,5 @@
-﻿using CustomerService.Entities;
-using CustomerService.Repository;
+﻿using CustomerService.Repository;
+using CustomerService.Repository.Abstract;
 using Microsoft.Practices.Unity;
 
 namespace CustomerService.IocConfig
@@ -9,7 +9,7 @@ namespace CustomerService.IocConfig
 		public static void RegisterComponents(UnityContainer container)
 		{
 	        container.RegisterType<IDataContext, CustomerModuleContext>(new PerThreadLifetimeManager());
-	        container.RegisterType<IUnitOfWork, EFUnitOfWork>();
+	        container.RegisterType<IUnitOfWork, EfUnitOfWork>();
 	        container.RegisterType<ICustomerRepository, CustomerRepository>();
 		}
 	}
