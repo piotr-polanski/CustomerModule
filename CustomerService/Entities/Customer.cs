@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using CustomerService.Exceptions;
 using SimpleValidator.Extensions;
 
 namespace CustomerService.Entities
@@ -15,9 +15,9 @@ namespace CustomerService.Entities
 		}
 
 		public int Id { get; private set; }
-		public string Name { get; }
-		public string Surname { get; }
-		public string TelephoneNumber { get;}
+		public string Name { get; private set; }
+		public string Surname { get; private set; }
+		public string TelephoneNumber { get; private set; }
 		public Address Address { get; private set; }
 
 		public void SetId(int id)
@@ -26,10 +26,10 @@ namespace CustomerService.Entities
 		}
 		public void Validate()
 		{
-			if(Name.IsNullOrEmpty()) throw new InvalidDataException("Name should not be emtpy or null");
-			if(Surname.IsNullOrEmpty()) throw new InvalidDataException("Surname should not be emtpy or null");
-			if(TelephoneNumber.IsNullOrEmpty()) throw new InvalidDataException("TelephoneNumber should not be emtpy or null");
-			if(Address.IsNull()) throw new InvalidDataException("Address should not be null");
+			if(Name.IsNullOrEmpty()) throw new CustomerInvalidException("Name should not be emtpy or null");
+			if(Surname.IsNullOrEmpty()) throw new CustomerInvalidException("Surname should not be emtpy or null");
+			if(TelephoneNumber.IsNullOrEmpty()) throw new CustomerInvalidException("TelephoneNumber should not be emtpy or null");
+			if(Address.IsNull()) throw new CustomerInvalidException("Address should not be null");
 		}
 
 	}

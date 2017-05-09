@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using CustomerService.Entities;
+using CustomerService.Exceptions;
 
 namespace CustomerService.Repository
 {
@@ -17,9 +18,15 @@ namespace CustomerService.Repository
 
 		public Customer GetById(int id)
 		{
-			return GetBy(c => c.Id == id)
+			var customer = GetBy(c => c.Id == id)
 				.Include(c => c.Address)
 				.FirstOrDefault();
+			if (customer != null)
+			{
+				return customer;
+			}
+			throw new EntityNotFoundException();
+
 		}
 
 	}

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
+using CustomerService.Exceptions;
 
 namespace CustomerService.Repository
 {
@@ -33,7 +33,14 @@ namespace CustomerService.Repository
 		public virtual void Delete(int id)
 		{
 			var entity = context.Set<T>().Find(id);
-			context.Set<T>().Remove(entity);
+			if (entity != null)
+			{
+				context.Set<T>().Remove(entity);
+			}
+			else
+			{
+				throw new EntityNotFoundException();
+			}
 		}
 
 		public virtual void Update(T entity)
