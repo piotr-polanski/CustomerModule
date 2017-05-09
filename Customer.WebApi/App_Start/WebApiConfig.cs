@@ -10,6 +10,8 @@ namespace Customer.WebApi
 			// Web API configuration and services
 
 			config.Filters.Add(new CustomerServiceExceptionAttribute());
+
+			log4net.Config.XmlConfigurator.Configure();
 			// Web API routes
 			config.MapHttpAttributeRoutes();
 
