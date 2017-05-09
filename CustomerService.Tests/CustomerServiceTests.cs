@@ -23,7 +23,7 @@ namespace CustomerService.Tests
 		}
 
 		[Fact]
-		public void Create_GivenCustomer_CustomerIsAddedAndSaved()
+		public void Create_GivenCustomerIsValid_CustomerIsAddedAndSaved()
 		{
 			//arrange
 			var customer = fixture.Create<Customer>();
@@ -37,6 +37,7 @@ namespace CustomerService.Tests
 			A.CallTo(() => unitOfWork.SaveChanges())
 				.MustHaveHappened(Repeated.Exactly.Once);
 		}
+
 
 		[Fact]
 		public void Delete_GivenId_CustomerWithIdIdDeletedAndChangesAreSaved()

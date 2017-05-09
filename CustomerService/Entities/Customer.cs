@@ -30,6 +30,7 @@ namespace CustomerService.Entities
 			if(Surname.IsNullOrEmpty()) throw new CustomerInvalidException("Surname should not be emtpy or null");
 			if(TelephoneNumber.IsNullOrEmpty()) throw new CustomerInvalidException("TelephoneNumber should not be emtpy or null");
 			if(Address.IsNull()) throw new CustomerInvalidException("Address should not be null");
+			Address.Validate();
 		}
 
 	}
