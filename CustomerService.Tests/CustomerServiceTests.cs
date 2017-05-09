@@ -50,10 +50,11 @@ namespace CustomerService.Tests
 
 			//assert
 			A.CallTo(() => customerRepository.Add(invalidCustomer))
-				.MustHaveHappened(Repeated.Never);
+				.MustNotHaveHappened();
 			A.CallTo(() => unitOfWork.SaveChanges())
-				.MustHaveHappened(Repeated.Never);
+				.MustNotHaveHappened();
 		}
+
 
 
 		[Fact]
@@ -99,9 +100,9 @@ namespace CustomerService.Tests
 
 			//assert
 			A.CallTo(() => customerRepository.Update(invalidCustomer))
-				.MustHaveHappened(Repeated.Never);
+				.MustNotHaveHappened();
 			A.CallTo(() => unitOfWork.SaveChanges())
-				.MustHaveHappened(Repeated.Never);
+				.MustNotHaveHappened();
 		}
 
 		[Fact]

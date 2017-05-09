@@ -72,6 +72,7 @@
     <Compile Include="CustomerService.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Exceptions\AddressInvalidException.cs" />
     <Compile Include="Exceptions\CustomerInvalidException.cs" />
     <Compile Include="Exceptions\EntityNotFoundException.cs" />
     <Compile Include="IocConfig\UnityConfig.cs" />

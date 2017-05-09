@@ -23,10 +23,10 @@ namespace CustomerService.Entities
 
 		public void Validate()
 		{
-			if(StreetName.IsNullOrEmpty()) throw new CustomerInvalidException("StreetName should not be null or empty");
-			if(City.IsNullOrEmpty()) throw new CustomerInvalidException("city should not be null or empty");
-			if(ZipCode.IsNullOrEmpty()) throw new CustomerInvalidException("zipCode should not be null or empty");
-			if(Country.IsNullOrEmpty()) throw new CustomerInvalidException("country should not be null or empty");
+			if(StreetName.IsNullOrEmpty()) throw new AddressInvalidException("StreetName should not be null or empty");
+			if(City.IsNullOrEmpty()) throw new AddressInvalidException("city should not be null or empty");
+			if(ZipCode.IsNullOrEmpty()) throw new AddressInvalidException("zipCode should not be null or empty");
+			if(Country.IsNullOrEmpty()) throw new AddressInvalidException("country should not be null or empty");
 		}
 	}
 }
