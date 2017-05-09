@@ -6,7 +6,7 @@
 
 ## Installation instruction:
 
-Clone this repo in to your machine, open it in VisualStudio and run/debug it. 
+Clone this repo in to your machine, open it in VisualStudio and run Customer.WebApi project. 
 
 ## App interaction:
 You can interact with the CustomerModule trough web api using for example https://www.getpostman.com/ or Fiddler. Remember to use application/json content type.
