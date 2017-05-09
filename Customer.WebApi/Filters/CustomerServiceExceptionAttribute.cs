@@ -17,9 +17,13 @@ namespace Customer.WebApi.Filters
 					
 				};
 			}
-			if (actionExecutedContext.Exception is EntityNotFoundException)
+			else if (actionExecutedContext.Exception is EntityNotFoundException)
 			{
 				actionExecutedContext.Response = new HttpResponseMessage(HttpStatusCode.NotFound);
+			}
+			else
+			{
+				actionExecutedContext.Response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
 			}
 		}
 	}
