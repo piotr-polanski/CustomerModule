@@ -8,9 +8,9 @@ namespace CustomerService.IocConfig
 	{
 		public static void RegisterComponents(UnityContainer container)
 		{
-	        container.RegisterType<IDataContext, CustomerModuleContext>(new PerThreadLifetimeManager());
-	        container.RegisterType<IUnitOfWork, EfUnitOfWork>();
-	        container.RegisterType<ICustomerRepository, CustomerRepository>();
+	        container.RegisterType<IDataContext, CustomerModuleContext>(new HierarchicalLifetimeManager());
+	        container.RegisterType<IUnitOfWork, EfUnitOfWork>(new HierarchicalLifetimeManager());
+	        container.RegisterType<ICustomerRepository, CustomerRepository>(new HierarchicalLifetimeManager());
 		}
 	}
 }
