@@ -3,7 +3,7 @@ using Ploeh.AutoFixture;
 
 namespace CustomerService.Tests
 {
-	class CustomerBuilder
+	class CustomerForTestsBuilder
 	{
 		private string _name;
 		private string _streetName;
@@ -14,7 +14,7 @@ namespace CustomerService.Tests
 		private string _telephoneNumber;
 		private bool _withAddress;
 
-		public CustomerBuilder()
+		public CustomerForTestsBuilder()
 		{
 			var fixture = new Fixture();
 			_name = fixture.Create<string>();
@@ -26,25 +26,25 @@ namespace CustomerService.Tests
 			_telephoneNumber = fixture.Create<string>();
 		}
 
-		public CustomerBuilder WithoutName()
+		public CustomerForTestsBuilder WithoutName()
 		{
 			_name = null;
 			return this;
 		}
 
-		public CustomerBuilder WithoutSurname()
+		public CustomerForTestsBuilder WithoutSurname()
 		{
 			_surName = null;
 			return this;
 		}
 
-		public CustomerBuilder WithoutTelephoneNumber()
+		public CustomerForTestsBuilder WithoutTelephoneNumber()
 		{
 			_telephoneNumber = null;
 			return this;
 		}
 
-		public CustomerBuilder WithoutAddress()
+		public CustomerForTestsBuilder WithoutAddress()
 		{
 			_withAddress = false;
 			return this;
@@ -57,6 +57,11 @@ namespace CustomerService.Tests
 				address = new Address(_streetName, _city, _zipCode, _country);
 			}
 			return new Customer(_name, _surName, _telephoneNumber, address);
+		}
+
+		public Customer BuildInvalid()
+		{
+			return new Customer(null,null,null,null);
 		}
 	}
 }

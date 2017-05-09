@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CustomerService.Entities;
 using CustomerService.Repository.Abstract;
 using FakeItEasy;
@@ -26,7 +27,7 @@ namespace CustomerService.Tests
 		public void Create_GivenCustomerIsValid_CustomerIsAddedAndSaved()
 		{
 			//arrange
-			var customer = fixture.Create<Customer>();
+			var customer = new CustomerForTestsBuilder().Build();
 
 			//act
 			customerService.Create(customer);
@@ -36,6 +37,22 @@ namespace CustomerService.Tests
 				.MustHaveHappened(Repeated.Exactly.Once);
 			A.CallTo(() => unitOfWork.SaveChanges())
 				.MustHaveHappened(Repeated.Exactly.Once);
+		}
+
+		[Fact]
+		public void Create_GivenInvalidCustomer_ThereIsNoAddAndSave()
+		{
+			//arrange
+			var invalidCustomer = new CustomerForTestsBuilder().BuildInvalid();
+
+			//act
+			Record.Exception(() => customerService.Create(invalidCustomer));
+
+			//assert
+			A.CallTo(() => customerRepository.Add(invalidCustomer))
+				.MustHaveHappened(Repeated.Never);
+			A.CallTo(() => unitOfWork.SaveChanges())
+				.MustHaveHappened(Repeated.Never);
 		}
 
 
@@ -56,10 +73,10 @@ namespace CustomerService.Tests
 		}
 
 		[Fact]
-		public void Update_GivenCustomer_CustomerIsUpdatedAndSaved()
+		public void Update_GivenValidCustomer_CustomerIsUpdatedAndSaved()
 		{
 			//arrange
-			var customer = fixture.Create<Customer>();
+			var customer = new CustomerForTestsBuilder().Build();
 
 			//act
 			customerService.Update(customer);
@@ -69,6 +86,22 @@ namespace CustomerService.Tests
 				.MustHaveHappened(Repeated.Exactly.Once);
 			A.CallTo(() => unitOfWork.SaveChanges())
 				.MustHaveHappened(Repeated.Exactly.Once);
+		}
+
+		[Fact]
+		public void Update_GivenInvalidCustomer_ThereIsNoUpdateAndSave()
+		{
+			//arrange
+			var invalidCustomer = new CustomerForTestsBuilder().BuildInvalid();
+
+			//act
+			Record.Exception(() => customerService.Update(invalidCustomer));
+
+			//assert
+			A.CallTo(() => customerRepository.Update(invalidCustomer))
+				.MustHaveHappened(Repeated.Never);
+			A.CallTo(() => unitOfWork.SaveChanges())
+				.MustHaveHappened(Repeated.Never);
 		}
 
 		[Fact]
@@ -90,7 +123,12 @@ namespace CustomerService.Tests
 		public void GetAll_IfCustomerExist_Return_Customer()
 		{
 			//arrange
-			var customers = fixture.Create <EnumerableQuery<Customer>>();
+			var customers = new List<Customer>()
+			{
+				new CustomerForTestsBuilder().Build(),
+				new CustomerForTestsBuilder().Build()
+			}.AsQueryable();
+
 			A.CallTo(() => customerRepository.GetAll())
 				.Returns(customers);
 

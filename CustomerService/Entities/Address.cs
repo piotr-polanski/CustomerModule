@@ -1,5 +1,4 @@
-﻿using System.IO;
-using CustomerService.Exceptions;
+﻿using CustomerService.Exceptions;
 using SimpleValidator.Extensions;
 
 namespace CustomerService.Entities

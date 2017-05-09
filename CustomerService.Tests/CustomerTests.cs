@@ -9,7 +9,7 @@ namespace CustomerService.Tests
 		public void Validate_WhenNameIsNull_ThrowsInvalidCustomerException()
 		{
 			//arrange
-			var customer = new CustomerBuilder().WithoutName().Build();
+			var customer = new CustomerForTestsBuilder().WithoutName().Build();
 
 			//act
 			var exception = Record.Exception(() => customer.Validate());
@@ -21,7 +21,7 @@ namespace CustomerService.Tests
 		public void Validate_WhenSurnameIsNull_ThrowsInvalidCustomerException()
 		{
 			//arrange
-			var customer = new CustomerBuilder().WithoutSurname().Build();
+			var customer = new CustomerForTestsBuilder().WithoutSurname().Build();
 
 			//act
 			var exception = Record.Exception(() => customer.Validate());
@@ -33,7 +33,7 @@ namespace CustomerService.Tests
 		public void Validate_WhenTelephoneNumberIsNull_ThrowsInvalidCustomerException()
 		{
 			//arrange
-			var customer = new CustomerBuilder().WithoutTelephoneNumber().Build();
+			var customer = new CustomerForTestsBuilder().WithoutTelephoneNumber().Build();
 
 			//act
 			var exception = Record.Exception(() => customer.Validate());
@@ -45,7 +45,7 @@ namespace CustomerService.Tests
 		public void Validate_WhenAddressIsNull_ThrowsInvalidCustomerException()
 		{
 			//arrange
-			var customer = new CustomerBuilder().WithoutAddress().Build();
+			var customer = new CustomerForTestsBuilder().WithoutAddress().Build();
 
 			//act
 			var exception = Record.Exception(() => customer.Validate());
