@@ -64,11 +64,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressForTestsBuilder.cs" />
-    <Compile Include="AddressTests.cs" />
-    <Compile Include="CustomerForTestsBuilder.cs" />
+    <Compile Include="EntitiesTests\AddressForTestsBuilder.cs" />
+    <Compile Include="EntitiesTests\AddressTests.cs" />
+    <Compile Include="EntitiesTests\CustomerForTestsBuilder.cs" />
     <Compile Include="CustomerServiceTests.cs" />
-    <Compile Include="CustomerTests.cs" />
+    <Compile Include="EntitiesTests\CustomerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

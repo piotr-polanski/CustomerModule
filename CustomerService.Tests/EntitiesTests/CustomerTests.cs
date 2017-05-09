@@ -1,10 +1,21 @@
 ﻿using CustomerService.Exceptions;
 using Xunit;
 
-namespace CustomerService.Tests
+namespace CustomerService.Tests.EntitiesTests
 {
 	public class CustomerTests
 	{
+		[Fact]
+		public void Validate_WhenCustomerIsValid_NothingHappens()
+		{
+			//arrange
+			var customer = new CustomerForTestsBuilder().Build();
+
+			//act
+			customer.Validate();
+
+			//assert nothing
+		}
 		[Fact]
 		public void Validate_WhenNameIsNull_ThrowsInvalidCustomerException()
 		{

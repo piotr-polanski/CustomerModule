@@ -2,6 +2,7 @@
 using System.Linq;
 using CustomerService.Entities;
 using CustomerService.Repository.Abstract;
+using CustomerService.Tests.EntitiesTests;
 using FakeItEasy;
 using Ploeh.AutoFixture;
 using Xunit;

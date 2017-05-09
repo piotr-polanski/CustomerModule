@@ -1,7 +1,7 @@
 ﻿using CustomerService.Exceptions;
 using Xunit;
 
-namespace CustomerService.Tests
+namespace CustomerService.Tests.EntitiesTests
 {
 	public class AddressTests
 	{

@@ -1,7 +1,7 @@
 ﻿using CustomerService.Entities;
 using Ploeh.AutoFixture;
 
-namespace CustomerService.Tests
+namespace CustomerService.Tests.EntitiesTests
 {
 	class CustomerForTestsBuilder
 	{
