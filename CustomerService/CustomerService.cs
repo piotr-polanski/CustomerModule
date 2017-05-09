@@ -8,9 +8,9 @@ namespace CustomerService
 	public class CustomerService : ICustomerService
 	{
 		private readonly IUnitOfWork _unitOfWork;
-		private readonly IRepository<Customer> _customerRepository;
+		private readonly ICustomerRepository _customerRepository;
 
-		public CustomerService(IUnitOfWork unitOfWork, IRepository<Customer> customerRepository)
+		public CustomerService(IUnitOfWork unitOfWork, ICustomerRepository customerRepository)
 		{
 			_unitOfWork = unitOfWork;
 			_customerRepository = customerRepository;

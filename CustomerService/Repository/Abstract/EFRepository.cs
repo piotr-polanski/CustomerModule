@@ -6,7 +6,7 @@ using CustomerService.Exceptions;
 
 namespace CustomerService.Repository
 {
-	class EFRepository<T> where T : class 
+	abstract class EFRepository<T> where T : class 
 	{
 		protected readonly IDataContext context;
 

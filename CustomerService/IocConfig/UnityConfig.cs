@@ -10,7 +10,7 @@ namespace CustomerService.IocConfig
 		{
 	        container.RegisterType<IDataContext, CustomerModuleContext>(new PerThreadLifetimeManager());
 	        container.RegisterType<IUnitOfWork, EFUnitOfWork>();
-	        container.RegisterType<IRepository<Customer>, CustomerRepository>();
+	        container.RegisterType<ICustomerRepository, CustomerRepository>();
 		}
 	}
 }
