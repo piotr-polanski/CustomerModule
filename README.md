@@ -1,4 +1,4 @@
-# CustomerModule
+# CustomerModule - job interview task
 
 ## Prerequisites:
 1. Sql Server Express
